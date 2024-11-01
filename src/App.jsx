@@ -12,13 +12,9 @@ import WaterRides from "./components/Rides/WaterRides";
 import KidsRides from "./components/Rides/KidsRides";
 import LandRides from "./components/Rides/LandRides";
 import Signage from "./components/ClearSignage";
-import Facilities from "./components/Facilities/facilities"; 
-import CameraBooking from "./components/CamBooking/CameraBooking";
-import ScreenReader from "./components/Facilities/ScreenReader";
-import Vehicles from './components/Facilities/Vehicles';
-import WheelChair from "./components/Facilities/WheelChair";
-import Chat from "./components/ChatWithUs/Chat";
-
+import Vehicles from "./components/Vehicle/Vehicles";
+import WheelChair from "./components/Wheelchair/WheelChair";
+import Dining from "./components/Restaurants/Dining"; 
 
 const App = () => {
   return (
@@ -28,6 +24,7 @@ const App = () => {
         <Route path="/login" element={<LoginWrapper />} />
         <Route path="/register" element={<Register />} />
         <Route path="/rides" element={<Rides />} />
+        <Route path="/dining" element={<Dining />} /> {/* Update to use Dining */}
         <Route path="/clearSignage" element={<ClearSignage />} />
         <Route path="/bookings" element={<BookingMain />} />
         <Route path="/highRides" element={<HighRides />} />
@@ -35,13 +32,9 @@ const App = () => {
         <Route path="/kidsRides" element={<KidsRides />} />
         <Route path="/landRides" element={<LandRides />} />
         <Route path="/signage" element={<Signage />} />
-        <Route path="/facilities" element={<Facilities />} /> 
         <Route path="/admin" element={<BookingView />} />
-        <Route path="/cameraBooking" element={<CameraBooking />} />
-        <Route path="/screenreader" element={<ScreenReader />} />
         <Route path="/vehicles" element={<Vehicles />} />
-        <Route path="/wheelchair" element={<WheelChair />} />
-        <Route path="/chat" element={<Chat />} />
+        <Route path="/wheelchairs" element={<WheelChair />} />
       </Routes>
     </Router>
   );
