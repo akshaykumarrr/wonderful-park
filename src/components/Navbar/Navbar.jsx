@@ -19,7 +19,7 @@ const NavbarMenu = [
     {
     id: 5,
     title: "Contact Us",
-    link: "#",
+    link: "/",
   },
   {
     id: 7,
@@ -31,6 +31,7 @@ const NavbarMenu = [
     title: <IoCartOutline/>,
     link: "/cart",
   },
+
 ];
 const Navbar = () => {
   return (

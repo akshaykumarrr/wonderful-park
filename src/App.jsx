@@ -20,7 +20,8 @@ import WheelChair from "./components/Facilities/WheelChair";
 import Dining from './components/Restaurants/Dining'
 import Cart from "./components/Cart/Cart";
 import Calender from "./components/Calender.jsx/Calender";
-
+import Payment from "./components/Payments/Payment";
+import ContactUs from './components/Feedback/ContactUs'
 
 const App = () => {
   return (
@@ -32,6 +33,8 @@ const App = () => {
         <Route path="/calender" element={<Calender />} />
         <Route path="/cart" element={<Cart />} />
         <Route path="/rides" element={<Rides />} />
+        <Route path="/contactus" element={<ContactUs />} />
+        <Route path="/payment" element={<Payment />} />
         <Route path="/clearSignage" element={<ClearSignage />} />
         <Route path="/bookings" element={<BookingMain />} />
         <Route path="/highRides" element={<HighRides />} />
@@ -45,7 +48,6 @@ const App = () => {
         <Route path="/screenreader" element={<ScreenReader />} />
         <Route path="/vehicles" element={<Vehicles />} />
         <Route path="/wheelchair" element={<WheelChair />} />
-  
         <Route path="/dining" element={<Dining />} />
       </Routes>
     </Router>

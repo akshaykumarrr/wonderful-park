@@ -1,16 +1,20 @@
 // Cart.js
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
-import { removeFromCart } from '../../redux/cartSlice'; // Adjust the import path
+import { removeFromCart, calculateTotalAmount } from '../../redux/cartSlice';
 
 function Cart() {
     const dispatch = useDispatch();
     const cartItems = useSelector((state) => state.cart.items);
-    
-    const totalPrice = cartItems.reduce((total, item) => total + item.price, 0);
+    const totalAmount = useSelector((state) => state.cart.totalAmount);
+
+    React.useEffect(() => {
+        dispatch(calculateTotalAmount()); // Ensure totalAmount is up-to-date in Redux
+    }, [cartItems, dispatch]);
 
     const handleRemoveItem = (itemId) => {
-        dispatch(removeFromCart({ id: itemId })); // Pass the id correctly
+        dispatch(removeFromCart({ id: itemId }));
     };
 
     return (
@@ -24,8 +28,8 @@ function Cart() {
                                 <img src={item.src} className="h-24 w-24 object-contain" alt={item.name} />
                                 <span className="flex-1 mx-4 text-center font-medium">{item.name}</span>
                                 <span className="font-semibold text-lg">${item.price.toFixed(2)}</span>
-                                <button 
-                                    onClick={() => handleRemoveItem(item.id)} // Assuming item.id exists
+                                <button
+                                    onClick={() => handleRemoveItem(item.id)}
                                     className="ml-4 text-red-600 hover:text-red-800 transition duration-200"
                                 >
                                     Remove
@@ -34,12 +38,14 @@ function Cart() {
                         ))}
                     </ul>
                     <div className="mt-4 sticky bottom-0 bg-gray-200 p-4 rounded-lg shadow-lg flex justify-between items-center">
-                        <h3 className="text-lg font-bold">Total: <span className="text-green-600">${totalPrice.toFixed(2)}</span></h3>
-                        <button 
-                            className="bg-green-600 text-white font-semibold px-4 py-2 rounded-lg shadow hover:bg-green-700 transition duration-200"
-                        >
-                            Pay Now
-                        </button>
+                        <h3 className="text-lg font-bold">Total: <span className="text-green-600">${totalAmount.toFixed(2)}</span></h3>
+                        <Link to='/payment'>
+                            <button
+                                className="bg-green-600 text-white font-semibold px-4 py-2 rounded-lg shadow hover:bg-green-700 transition duration-200"
+                            >
+                                Pay Now
+                            </button>
+                        </Link>
                     </div>
                 </>
             ) : (

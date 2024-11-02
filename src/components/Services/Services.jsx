@@ -48,7 +48,7 @@ const ServicesData = [
   {
     id: 6,
     title: "Contact Us",
-    link: "/contact",
+    link: "/contactus",
     icon: <BiSupport />,
     delay: 0.7,
   },
