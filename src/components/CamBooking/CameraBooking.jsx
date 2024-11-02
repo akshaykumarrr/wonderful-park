@@ -4,9 +4,15 @@ import BookPhotographer from "./BookPhotographer";
 
 const CameraBooking = () => {
   const [selectedOption, setSelectedOption] = useState(null);
+  const [cart, setCart] = useState([]);
+
+  const addToCart = (camera) => {
+    setCart((prevCart) => [...prevCart, camera]);
+    alert(`${camera.name} added to cart for $${camera.price}`);
+  };
 
   const renderSelectedOption = () => {
-    if (selectedOption === "rent") return <RentCamera />;
+    if (selectedOption === "rent") return <RentCamera addToCart={addToCart} />;
     if (selectedOption === "photographer") return <BookPhotographer />;
     return null;
   };

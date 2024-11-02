@@ -1,12 +1,7 @@
 import React, { useState } from "react";
+import photographersData from "../../javascript/photographersData";
 
-const photographers = [
-  { id: 1, name: "Keira Jones", experience: "5 years", price: 200, available: true },
-  { id: 2, name: "Millie Bobby Brown", experience: "3 years", price: 150, available: false },
-  { id: 3, name: "Alex Russo", experience: "4 years", price: 180, available: true },
-];
-
-const BookPhotographer = () => {
+const BookPhotographer = ({ addToCart }) => {
   const [selectedPhotographer, setSelectedPhotographer] = useState(null);
   const [date, setDate] = useState("");
   const [timeSlot, setTimeSlot] = useState("");
@@ -18,13 +13,14 @@ const BookPhotographer = () => {
     }
     setSelectedPhotographer(photographer);
     alert(`Slot booked with ${photographer.name} on ${date} at ${timeSlot} for $${photographer.price}`);
+    addToCart(photographer);
   };
 
   return (
     <div className="mt-5">
       <h2 className="text-3xl font-bold text-left mb-6">Available Photographers</h2>
       <div className="photographer-list grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
-        {photographers.map((photographer) => (
+        {photographersData.map((photographer) => (
           <div
             key={photographer.id}
             className={`photographer-card border p-5 rounded-lg shadow-lg ${

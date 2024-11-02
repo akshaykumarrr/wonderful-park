@@ -17,9 +17,10 @@ import CameraBooking from "./components/CamBooking/CameraBooking";
 import ScreenReader from "./components/Facilities/ScreenReader";
 import Vehicles from './components/Facilities/Vehicles';
 import WheelChair from "./components/Facilities/WheelChair";
-import Dining from "./components/Restaurants/Dining";
-import Chatbot from "./components/ChatBot";
-import DealCalendar from './components/DealCalendar';
+import Dining from './components/Restaurants/Dining'
+import Cart from "./components/Cart/Cart";
+import Calender from "./components/Calender.jsx/Calender";
+
 
 const App = () => {
   return (
@@ -28,6 +29,8 @@ const App = () => {
         <Route path="/" element={<Home />} />
         <Route path="/login" element={<LoginWrapper />} />
         <Route path="/register" element={<Register />} />
+        <Route path="/calender" element={<Calender />} />
+        <Route path="/cart" element={<Cart />} />
         <Route path="/rides" element={<Rides />} />
         <Route path="/clearSignage" element={<ClearSignage />} />
         <Route path="/bookings" element={<BookingMain />} />
@@ -42,9 +45,8 @@ const App = () => {
         <Route path="/screenreader" element={<ScreenReader />} />
         <Route path="/vehicles" element={<Vehicles />} />
         <Route path="/wheelchair" element={<WheelChair />} />
-        <Route path="/dining" element={<Dining />} />
-        <Route path="/chat" element={<Chatbot/>} />
-        <Route path="/calendar" element={<DealCalendar />} />
+  
+        <Route path="/dining" element={<Dining />} />
       </Routes>
     </Router>
   );

@@ -1,6 +1,8 @@
 import React from "react";
 import { IoMdMenu } from "react-icons/io";
 import { motion } from "framer-motion";
+import { SlCalender } from "react-icons/sl";
+import { IoCartOutline } from "react-icons/io5";
 
 const NavbarMenu = [
   {
@@ -8,23 +10,28 @@ const NavbarMenu = [
     title: "Home",
     path: "/",
   },
-  {
-    id: 2,
-    title: "About Us",
-    path: "/about", 
-  },
+ 
   {
     id: 3,
-    title: "Calendar", 
-    path: "/calendar", 
+    title: "About Us",
+    link: "#",
+  },
+    {
+    id: 5,
+    title: "Contact Us",
+    link: "#",
   },
   {
-    id: 4,
-    title: "Contact Us",
-    path: "/contact",
+    id: 7,
+    title: <SlCalender/>,
+    link: "#",
+  },
+  {
+    id: 9,
+    title: <IoCartOutline/>,
+    link: "/cart",
   },
 ];
-
 const Navbar = () => {
   return (
     <nav className="relative z-20">
@@ -49,14 +56,9 @@ const Navbar = () => {
                 </a>
               </li>
             ))}
-            <button
-              className="primary-btn"
-              onClick={() => {
-                window.location.href = "/login";
-              }}
-            >
-              Sign In
-            </button>
+            <button className="primary-btn" onClick={() => {
+              window.location.href = "/login"
+            }}>Sign In</button>
           </ul>
         </div>
         <div className="lg:hidden">

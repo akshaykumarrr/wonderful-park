@@ -6,6 +6,7 @@ import { IoMdHappy } from "react-icons/io";
 import { MdLocalActivity } from "react-icons/md";
 import { BiSupport } from "react-icons/bi";
 import { SiReactos } from "react-icons/si";
+import { IoCartOutline } from "react-icons/io5";
 import { motion } from "framer-motion";
 
 const ServicesData = [
@@ -49,6 +50,13 @@ const ServicesData = [
     title: "Contact Us",
     link: "/contact",
     icon: <BiSupport />,
+    delay: 0.7,
+  },
+  {
+    id: 7,
+    title: "cart",
+    link: "/cart",
+    icon: <IoCartOutline />,
     delay: 0.7,
   },
 ];
